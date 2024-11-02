@@ -23,6 +23,9 @@ enum CardinalDirections {
 export default function Index() {
   return (
     <div className="">
+      {/* <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      </head> */}
       {/* <Home></Home> */}
       <LandingPage></LandingPage>
     </div>

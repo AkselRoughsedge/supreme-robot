@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import $ from 'jquery';
 
 export default function LandingPage() {
 const [isLogin, setIsLogin] = useState(true)
@@ -18,7 +19,11 @@ const login = () => {
 }
 
 const signup = () => {
-
+    alert("Hello!")
+    $.get("http://localhost:3001", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+        console.log(status)
+      });
 }
 
 //Login and Signup component
@@ -30,7 +35,7 @@ const LoginSignup = () => {
                     <input className="rounded-md dark:bg-slate-600 p-1" placeholder="email" type="email"></input>
                     <input className="rounded-md dark:bg-slate-600 p-1"  placeholder="password" type="password"></input>
                     <input className={ "rounded-md dark:bg-slate-600 p-1 " + (isLogin ? "hidden" : "") }  placeholder="repeat password" type="password"></input>
-                    <button className="w-full bg-blue-200 dark:bg-slate-500 rounded-md p-1 !mt-8 hover:bg-blue-100 dark:hover:bg-slate-400">{isLogin ? "Login" : "Create account"}</button>
+                    <button onClick={isLogin ? login : signup} className="w-full bg-blue-200 dark:bg-slate-500 rounded-md p-1 !mt-8 hover:bg-blue-100 dark:hover:bg-slate-400">{isLogin ? "Login" : "Create account"}</button>
                     <button onClick={toggleView} className="w-fit p-1 rounded-md">{isLogin ? "Create account" : "Login"}</button>
                 </div>
             </div>
